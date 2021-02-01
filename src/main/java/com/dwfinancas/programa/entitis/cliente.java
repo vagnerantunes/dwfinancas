@@ -1,5 +1,6 @@
-package com.dwfinancas.programa.entidade;
+package com.dwfinancas.programa.entitis;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +11,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class cliente {
+public class cliente implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long CLI_ID;
+	private Long CLI_ID;
 	private String CLI_NOME;
 	private String CLI_TIPO;
 	private String CLI_CFP_CNPJ;

@@ -1,5 +1,6 @@
-package com.dwfinancas.programa.entidade;
+package com.dwfinancas.programa.entitis;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -12,11 +13,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class fatura_pessoal_negocios {
+public class fatura_pessoal_negocios implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long FAT_ID;
+	private Long FAT_ID;
 	private Integer FAT_STA_ID;
 	private Integer FAT_FPG_ID;
 	private String FAT_DESCRICAO;

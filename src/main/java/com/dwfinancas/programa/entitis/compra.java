@@ -1,5 +1,6 @@
-package com.dwfinancas.programa.entidade;
+package com.dwfinancas.programa.entitis;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -12,11 +13,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class compra {
+public class compra implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long COM_ID;
+	private Long COM_ID;
 	private Integer COM_PRO_ID;
 	private Integer COM_FOR_ID;
 	private String COM_DESCRICAO;
