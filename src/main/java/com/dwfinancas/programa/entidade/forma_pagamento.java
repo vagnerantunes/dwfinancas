@@ -9,18 +9,15 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Fornecador {
+public class forma_pagamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long FOR_ID;
-	private String FOR_NOME;
-	private String FOR_TIPO;
-	private String FOR_CPF_CNPJ;
-	private String FOR_FANTASIA;
-	private String FOR_ENDERECO;
-	private String FOR_CONTATO;
-	private Integer FOR_EMAIL;
-	
-	
+	private long FPG_ID;
+	private String FPG_TIPO_CONTA;
+	private String FPG_DESCRICAO;
+	private String FPG_TIPO;
+	private Integer FPG_QTDPARCELA;
+	private Double FPG_PORCENTAGEM;
+
 }

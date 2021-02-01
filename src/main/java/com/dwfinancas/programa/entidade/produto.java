@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Produto {
+public class produto {
 	
 	private long PRO_ID;
 	private String PRO_DESCRICAO; 

@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Cliente {
+public class cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
