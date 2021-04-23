@@ -1,7 +1,6 @@
 package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,17 +15,17 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class saldo implements Serializable{
-		
+public class FormaPagamento implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long SAL_ID;	
-	private Integer SAL_FAT_ID;
-	private LocalDate SAL_DATA;
-	private Double SAL_APAGAR;
-	private Double SAL_ARECEBER;
-	private Double SAL_DIFERENCA;
+	private Long FPG_ID;
+	private String FPG_TIPO_CONTA;
+	private String FPG_DESCRICAO;
+	private String FPG_TIPO;
+	private Integer FPG_QTDPARCELA;
+	private Double FPG_PORCENTAGEM;
 
 }

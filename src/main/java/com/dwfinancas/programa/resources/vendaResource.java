@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.venda;
+import com.dwfinancas.programa.entities.Venda;
 import com.dwfinancas.programa.services.vendaService;
 
 @RestController
@@ -19,8 +19,8 @@ public class vendaResource {
 	private vendaService service;
 	
 	@GetMapping
-	public ResponseEntity<List<venda>> findAll(){
-		List<venda> list = service.findAll();
+	public ResponseEntity<List<Venda>> findAll(){
+		List<Venda> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }

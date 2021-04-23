@@ -7,19 +7,19 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.dwfinancas.programa.entities.cliente;
-import com.dwfinancas.programa.repositories.clienteRepository;
+import com.dwfinancas.programa.entities.Cliente;
+import com.dwfinancas.programa.repositories.ClienteRepository;
 
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
 
 	@Autowired
-	private clienteRepository repository;
+	private ClienteRepository repository;
 
 	@Override
 	public void run(String... args) throws Exception {
-		cliente cli1 = new cliente(null, null, null, null, null, null, null, null, null, null, null);
+		Cliente cli1 = new Cliente(null, null, null, null, null, null, null, null, null, null, null);
 
 		repository.saveAll(Arrays.asList(cli1));
 	}

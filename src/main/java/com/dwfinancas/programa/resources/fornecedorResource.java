@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.fornecedor;
+import com.dwfinancas.programa.entities.Fornecedor;
 import com.dwfinancas.programa.services.fornecedorService;
 
 @RestController
@@ -19,8 +19,8 @@ public class fornecedorResource {
 	private fornecedorService service;
 	
 	@GetMapping
-	public ResponseEntity<List<fornecedor>> findAll(){
-		List<fornecedor> list = service.findAll();
+	public ResponseEntity<List<Fornecedor>> findAll(){
+		List<Fornecedor> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }

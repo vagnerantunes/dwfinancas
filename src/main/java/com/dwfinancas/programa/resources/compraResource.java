@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.compra;
+import com.dwfinancas.programa.entities.Compra;
 import com.dwfinancas.programa.services.compraService;
 
 @RestController
@@ -19,8 +19,8 @@ public class compraResource {
 	private compraService service;
 	
 	@GetMapping
-	public ResponseEntity<List<compra>> findAll(){
-		List<compra> list = service.findAll();
+	public ResponseEntity<List<Compra>> findAll(){
+		List<Compra> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.forma_pagamento;
+import com.dwfinancas.programa.entities.FormaPagamento;
 import com.dwfinancas.programa.services.forma_pagamentoService;
 
 @RestController
@@ -19,8 +19,8 @@ public class forma_pagamentoResource {
 	private forma_pagamentoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<forma_pagamento>> findAll(){
-		List<forma_pagamento> list = service.findAll();
+	public ResponseEntity<List<FormaPagamento>> findAll(){
+		List<FormaPagamento> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 
