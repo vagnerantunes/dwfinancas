@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dwfinancas.programa.entities.Compra;
-import com.dwfinancas.programa.services.compraService;
+import com.dwfinancas.programa.services.CompraService;
 
 @RestController
 @RequestMapping(value = "/compras")
-public class compraResource {
+public class CompraResource {
 	
 	@Autowired
-	private compraService service;
+	private CompraService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Compra>> findAll(){

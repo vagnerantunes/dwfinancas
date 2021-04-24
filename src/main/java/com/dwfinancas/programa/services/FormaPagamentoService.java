@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.FormaPagamento;
-import com.dwfinancas.programa.repositories.forma_pagamentoRepository;
+import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
 
 @Service
-public class forma_pagamentoService {
+public class FormaPagamentoService {
 	
 	@Autowired
-	forma_pagamentoRepository repository;
+	FormaPagamentoRepository repository;
 	
 	public List<FormaPagamento> findAll(){
 		return repository.findAll();

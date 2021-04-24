@@ -3,9 +3,9 @@ package com.dwfinancas.programa.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dwfinancas.programa.entities.status;
+import com.dwfinancas.programa.entities.Fatura;
 
 @Repository
-public interface statusRepository extends JpaRepository<status, Long>{
+public interface FaturaRepository extends JpaRepository<Fatura, Long>{
 
 }

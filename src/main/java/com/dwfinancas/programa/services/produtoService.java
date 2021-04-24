@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Produto;
-import com.dwfinancas.programa.repositories.produtoRepository;
+import com.dwfinancas.programa.repositories.ProdutoRepository;
 
 @Service
-public class produtoService {
+public class ProdutoService {
 	
 	@Autowired
-	produtoRepository repository;
+	ProdutoRepository repository;
 	
 	public List<Produto> findAll(){
 		return repository.findAll();

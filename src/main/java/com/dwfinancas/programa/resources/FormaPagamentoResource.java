@@ -8,19 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.Fatura;
-import com.dwfinancas.programa.services.fatura_pessoal_negociosService;
+import com.dwfinancas.programa.entities.FormaPagamento;
+import com.dwfinancas.programa.services.FormaPagamentoService;
 
 @RestController
-@RequestMapping(value = "/faturas")
-public class fatura_pessoal_negociosResource {
-
+@RequestMapping(value = "/fpg")
+public class FormaPagamentoResource {
+	
 	@Autowired
-	private fatura_pessoal_negociosService service;
+	private FormaPagamentoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Fatura>> findAll(){
-		List<Fatura> list = service.findAll();
+	public ResponseEntity<List<FormaPagamento>> findAll(){
+		List<FormaPagamento> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
+
 }

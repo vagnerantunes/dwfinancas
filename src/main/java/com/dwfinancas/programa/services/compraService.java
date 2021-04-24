@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Compra;
-import com.dwfinancas.programa.repositories.compraRepository;
+import com.dwfinancas.programa.repositories.CompraRepository;
 
 @Service
-public class compraService {
+public class CompraService {
 
 	@Autowired
-	compraRepository repository;
+	CompraRepository repository;
 	
 	public List<Compra> findAll(){
 		return repository.findAll();		

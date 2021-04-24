@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dwfinancas.programa.entities.Venda;
 
 @Repository
-public interface vendaRepository extends JpaRepository<Venda, Long>{
+public interface VendaRepository extends JpaRepository<Venda, Long>{
 
 }

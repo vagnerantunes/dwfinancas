@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dwfinancas.programa.entities.Fornecedor;
-import com.dwfinancas.programa.services.fornecedorService;
+import com.dwfinancas.programa.services.FornecedorService;
 
 @RestController
 @RequestMapping(value = "/fornecedores")
-public class fornecedorResource {
+public class FornecedorResource {
 
 	@Autowired
-	private fornecedorService service;
+	private FornecedorService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Fornecedor>> findAll(){

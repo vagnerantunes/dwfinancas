@@ -5,17 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dwfinancas.programa.entities.status;
-import com.dwfinancas.programa.repositories.statusRepository;
+import com.dwfinancas.programa.entities.Fatura;
+import com.dwfinancas.programa.repositories.FaturaRepository;
 
 @Service
-public class statusService {
+public class FaturaService {
 	
 	@Autowired
-	statusRepository repository;
+	FaturaRepository repository;
 	
-	
-	public List<status> findAll(){
+	public List<Fatura> findAll(){
 		return repository.findAll();
 	}
 

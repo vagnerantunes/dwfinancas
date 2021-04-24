@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dwfinancas.programa.entities.Compra;
 
 @Repository
-public interface compraRepository extends JpaRepository<Compra, Long>{
+public interface CompraRepository extends JpaRepository<Compra, Long>{
 
 }

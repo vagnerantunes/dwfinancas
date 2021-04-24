@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.dwfinancas.programa.entities.Fornecedor;
 
 @Repository
-public interface fornecedorRepository extends JpaRepository<Fornecedor, Long>{
+public interface FornecedorRepository extends JpaRepository<Fornecedor, Long>{
 
 }

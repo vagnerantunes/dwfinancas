@@ -3,10 +3,11 @@ package com.dwfinancas.programa.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dwfinancas.programa.entities.cliente;
+import com.dwfinancas.programa.entities.Cliente;
+
 
 @Repository
-public interface clienteRepository extends JpaRepository<cliente, Long> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
 
 }

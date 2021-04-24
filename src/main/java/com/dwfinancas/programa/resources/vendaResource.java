@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dwfinancas.programa.entities.Venda;
-import com.dwfinancas.programa.services.vendaService;
+import com.dwfinancas.programa.services.VendaService;
 
 @RestController
 @RequestMapping(value = "/venda")
-public class vendaResource {
+public class VendaResource {
 
 	@Autowired
-	private vendaService service;
+	private VendaService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Venda>> findAll(){
