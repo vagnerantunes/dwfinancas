@@ -28,9 +28,9 @@ public class Cliente implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long CLI_ID;
-	@Column(length = 45, nullable = false)
+	@Column(length = 45)
 	private String CLI_NOME;
-	@Column(length = 15, nullable = false)
+	@Column(length = 15)
 	private String CLI_TIPO;
 	@Column(length = 15)
 	private String CLI_CFPCNPJ;
