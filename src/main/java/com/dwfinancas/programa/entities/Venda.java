@@ -26,15 +26,19 @@ public class Venda implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long VEN_ID;
-	private Integer VEN_CLI_ID;
-	private Integer VEN_PRO_ID;
+	
+	@ManyToOne
+	@JoinColumn(name = "VEN_CLI_ID")
+	private Cliente clientes;
+	
+	@ManyToOne
+	@JoinColumn(name = "VEN_FPG_ID")
+	private FormaPagamento pagamentos;
+	//--------------	
 	private LocalDate VEN_DATA;
 	private Integer VEN_QTD;
 	private Double VEN_TOTAL;
 	private Double VEN_DESCONTO;
-	private Double VEN_JUROS;
+	private Double VEN_JUROS;	
 	
-	@ManyToOne
-	@JoinColumn(name = "clientes_id")
-	private Cliente clientes;
 }

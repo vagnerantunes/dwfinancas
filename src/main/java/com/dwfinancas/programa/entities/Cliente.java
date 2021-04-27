@@ -80,5 +80,4 @@ public class Cliente implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "clientes")
 	private List<Venda> vendas = new ArrayList<>();
-
 }
