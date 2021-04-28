@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,7 +29,11 @@ public class Compra implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long COM_ID;
 	private Integer COM_PRO_ID;
-	private Integer COM_FOR_ID;
+	
+	@ManyToOne
+	@JoinColumn(name = "COM_FOR_ID")
+	private Fornecedor fornecedor;
+	
 	private String COM_DESCRICAO;
 	private LocalDate COM_DATA;
 	private Integer COM_QTD;

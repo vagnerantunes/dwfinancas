@@ -54,4 +54,9 @@ public class FormaPagamento implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "pagamentos")
 	private List<Venda> vendas = new ArrayList<>();
+	
+	@Getter
+	@JsonIgnore
+	@OneToMany(mappedBy = "pagamentos")
+	private List<Fatura> faturas = new ArrayList<>();
 }

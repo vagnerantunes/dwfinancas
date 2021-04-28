@@ -8,7 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.dwfinancas.programa.enums.FaturaStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +30,13 @@ public class Fatura implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long FAT_ID;
-	private Integer FAT_STA_ID;
-	private Integer FAT_FPG_ID;
+	
+	@ManyToOne
+	@JoinColumn(name = "FAT_FPG_ID")
+	private FormaPagamento pagamentos;
+		
+	private FaturaStatus faturaStatus;
+	
 	private String FAT_DESCRICAO;
 	private LocalDate FAT_DATALANCAMENTO;	
 	private String FAT_CONTA;
