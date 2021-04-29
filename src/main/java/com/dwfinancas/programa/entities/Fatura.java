@@ -1,9 +1,7 @@
 package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
+import java.time.Instant;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,18 +31,16 @@ public class Fatura implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "FAT_FPG_ID")
-	private FormaPagamento pagamentos;
-		
-	private FaturaStatus faturaStatus;
-	
+	private FormaPagamento pagamentos;		
+	private FaturaStatus faturaStatus;	
 	private String FAT_DESCRICAO;
-	private LocalDate FAT_DATALANCAMENTO;	
+	private Instant FAT_DATALANCAMENTO;	
 	private String FAT_CONTA;
 	private String FAT_OBSERVACAO;
-	private BigDecimal FAT_VALORPARCELA;
-	private BigDecimal FAT_VALORPAGO;
-	private BigDecimal FAT_SALDO;
-	private LocalDate FAT_VENCIMENTO;
+	private Double FAT_VALORPARCELA;
+	private Double FAT_VALORPAGO;
+	private Double FAT_SALDO;	
+	private Instant FAT_VENCIMENTO;
 	private Integer FAT_ATRASO;
 	
 }

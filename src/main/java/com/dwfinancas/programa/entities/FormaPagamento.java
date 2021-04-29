@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import lombok.Setter;
 @Table(name = "tb_formaPagamento")
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class FormaPagamento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -59,4 +61,6 @@ public class FormaPagamento implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "pagamentos")
 	private List<Fatura> faturas = new ArrayList<>();
+		
+	
 }
