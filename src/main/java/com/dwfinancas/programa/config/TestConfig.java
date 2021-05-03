@@ -27,10 +27,15 @@ public class TestConfig implements CommandLineRunner {
 	private FaturaRepository faturaRepository;
 	
 	@Autowired
-	private FormaPagamentoRepository formaPagamentoRepository; 
-
+	private FormaPagamentoRepository formaPagamentoRepository; 		
+	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		Cliente cli1 = new Cliente(null, "Vagner Antunes de Souza", "PF", "097.551.319-22", Instant.parse("1994-01-07T10:00:00Z"), null, null, null, null, null, null, null);
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		
+		//Cliente(Long, String, String, String, Instant, String, String, String, String, String, String, List<Venda>)
 		
 		FormaPagamento fpg1 = new FormaPagamento(null, null, null, null, null, null, null, null);
 		formaPagamentoRepository.saveAll(Arrays.asList(fpg1));
