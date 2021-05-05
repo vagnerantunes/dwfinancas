@@ -36,7 +36,6 @@ public class Venda implements Serializable{
 	private FormaPagamento pagamentos;
 	//--------------	
 	private LocalDate VEN_DATA;
-	private Integer VEN_QTD;
 	private Double VEN_TOTAL;
 	private Double VEN_DESCONTO;
 	private Double VEN_JUROS;	

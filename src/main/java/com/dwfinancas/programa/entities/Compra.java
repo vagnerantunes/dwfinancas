@@ -32,11 +32,8 @@ public class Compra implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "COM_FOR_ID")
-	private Fornecedor fornecedor;
-	
-	private String COM_DESCRICAO;
-	private LocalDate COM_DATA;
-	private Integer COM_QTD;
+	private Fornecedor fornecedor;	
+	private LocalDate COM_DATA;	
 	private BigDecimal COM_VALORTOTAL;
 	private BigDecimal COM_DESCONTO;
 	private BigDecimal COM_JUROS;
