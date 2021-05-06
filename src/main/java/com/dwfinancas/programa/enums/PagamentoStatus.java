@@ -1,6 +1,6 @@
 package com.dwfinancas.programa.enums;
 
-public enum FaturaStatus {
+public enum PagamentoStatus {
 	
 	PAGO_TOTAL,
 	PENDENTE,

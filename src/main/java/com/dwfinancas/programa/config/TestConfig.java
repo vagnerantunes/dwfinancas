@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.dwfinancas.programa.entities.Cliente;
 import com.dwfinancas.programa.entities.Fatura;
 import com.dwfinancas.programa.entities.FormaPagamento;
+import com.dwfinancas.programa.enums.PagamentoStatus;
 import com.dwfinancas.programa.repositories.ClienteRepository;
 import com.dwfinancas.programa.repositories.FaturaRepository;
 import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
@@ -39,9 +40,9 @@ public class TestConfig implements CommandLineRunner {
 		FormaPagamento fpg1 = new FormaPagamento(null, "PAGAMENTO", "DAS", "MENSAL", 1, 0.00, null, null);
 		formaPagamentoRepository.saveAll(Arrays.asList(fpg1));
 				
-		Fatura fat2 = new Fatura(null, fpg1, null, null, null, null, null, null, null, null);
+		Fatura fat2 = new Fatura(null, fpg1, PagamentoStatus.PENDENTE, Instant.parse("2021-05-06T08:15:00Z"), 61.00, 0.00, 0.00, 0.00, Instant.parse("2021-06-06T00:00:00Z"), null);
 		faturaRepository.saveAll(Arrays.asList(fat2));
 		//Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
-		//Fatura(Long, FormaPagamento, FaturaStatus, String, Instant, String, String, Double, Double, Double, Instant, Integer)								
+		//Fatura(Long, FormaPagamento, PagamentoStatus, String, Instant, String, String, Double, Double, Double, Instant, Integer)								
 	}		
 }

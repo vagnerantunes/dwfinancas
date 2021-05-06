@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.dwfinancas.programa.enums.FaturaStatus;
+import com.dwfinancas.programa.enums.PagamentoStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,7 +32,7 @@ public class Fatura implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "FAT_FPG_ID")
 	private FormaPagamento pagamentos;		
-	private FaturaStatus faturaStatus;		
+	private PagamentoStatus faturaStatus;		
 	private Instant FAT_DATALANCAMENTO;			
 	private Double FAT_VALORTOTAL;
 	private Double FAT_DESCONTO;
