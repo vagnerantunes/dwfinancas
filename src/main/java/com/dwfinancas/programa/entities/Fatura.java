@@ -32,7 +32,7 @@ public class Fatura implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "FAT_FPG_ID")
 	private FormaPagamento pagamentos;		
-	private PagamentoStatus faturaStatus;		
+	private PagamentoStatus FAT_STS_PAG;	
 	private Instant FAT_DATALANCAMENTO;			
 	private Double FAT_VALORTOTAL;
 	private Double FAT_DESCONTO;
