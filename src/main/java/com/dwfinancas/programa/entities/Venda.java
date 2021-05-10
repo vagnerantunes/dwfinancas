@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.dwfinancas.programa.enums.PagamentoStatus;
+import com.dwfinancas.programa.enums.VendaStatus;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,5 +48,5 @@ public class Venda implements Serializable{
 	private Double VEN_DESCONTO;
 	private Double VEN_JUROS;	
 	private PagamentoStatus VEN_STS_PAG;
-	//CRIAR VEN_STS_ORC
+	private VendaStatus VEN_STS_ORC;	
 }

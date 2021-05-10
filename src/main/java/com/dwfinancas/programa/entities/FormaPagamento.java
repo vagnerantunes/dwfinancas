@@ -53,6 +53,10 @@ public class FormaPagamento implements Serializable{
 	private Double FPG_PORCENTAGEM;
 	
 	@Getter
+	@Setter
+	private String FPG_FLAG;
+	
+	@Getter
 	@JsonIgnore
 	@OneToMany(mappedBy = "pagamentos")
 	private List<Venda> vendas = new ArrayList<>();

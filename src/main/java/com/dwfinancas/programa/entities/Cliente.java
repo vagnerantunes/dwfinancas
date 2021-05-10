@@ -75,6 +75,11 @@ public class Cliente implements Serializable{
 	@Column(length = 45)
 	private String CLI_SEGMENTO;
 	
+	@Getter
+	@Setter
+	@Column(length = 1)
+	private String CLI_FLAG;
+	
 	//Lista não tem Set, somente Get.
 	@Getter
 	@JsonIgnore

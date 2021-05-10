@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,14 +31,21 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long USU_ID;
+	
+	@Column(length = 45, nullable = false)
 	private String USU_NOME;
+	
+	@Column(length = 1, nullable = false)
 	private String USU_FLAG;
+	
+	@Column(length = 15, nullable = false)
 	private String USU_FUNCAO;
+	
+	@Column(length = 11, nullable = false)
 	private String USU_SENHA;
 	
 	@Getter
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuarios")
-	private List<Usuario> usuarios = new ArrayList<>();
-	
+	private List<Usuario> usuarios = new ArrayList<>();	
 }

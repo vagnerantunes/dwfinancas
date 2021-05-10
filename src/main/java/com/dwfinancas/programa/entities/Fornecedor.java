@@ -36,6 +36,7 @@ public class Fornecedor implements Serializable{
 	private String FOR_ENDERECO;
 	private String FOR_CONTATO;
 	private Integer FOR_EMAIL;
+	private String FOR_FLAG;
 	
 	@Getter
 	@JsonIgnore	

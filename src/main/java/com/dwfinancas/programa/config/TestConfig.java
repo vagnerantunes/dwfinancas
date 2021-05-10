@@ -32,15 +32,15 @@ public class TestConfig implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Cliente cli1 = new Cliente(null, "Vagner Antunes de Souza", "PF", "097.551.319-22", Instant.parse("1994-01-07T10:00:00Z"), "(43) 99139-7159", "vagner.antunes0701@outlook.com", null, null, "RUA SOFIA KUSKOSK MENDES, N°134", null, null);
+		Cliente cli1 = new Cliente(null, "Vagner Antunes de Souza", "PF", "097.551.319-22", Instant.parse("1994-01-07T10:00:00Z"), "(43) 99139-7159", "vagner.antunes0701@outlook.com", null, null, "RUA SOFIA KUSKOSK MENDES, N°134", null, null, null);
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		
 		//Cliente(Long, String, String, String, Instant, String, String, String, String, String, String, List<Venda>)
 		
-		FormaPagamento fpg1 = new FormaPagamento(null, "PAGAMENTO", "DAS", "MENSAL", 1, 0.00, null, null);
+		FormaPagamento fpg1 = new FormaPagamento(null, "PAGAMENTO", "DAS", "MENSAL", 1, 0.00, null, null, null);
 		formaPagamentoRepository.saveAll(Arrays.asList(fpg1));
 				
-		Fatura fat2 = new Fatura(null, fpg1, PagamentoStatus.PENDENTE, Instant.parse("2021-05-06T08:15:00Z"), 61.00, 0.00, 0.00, 0.00, Instant.parse("2021-06-06T00:00:00Z"), null);
+		Fatura fat2 = new Fatura(null, fpg1, Instant.parse("2021-05-06T08:15:00Z"), 61.00, 0.00, 0.00, 0.00, Instant.parse("2021-06-06T00:00:00Z"), null, PagamentoStatus.PENDENTE);
 		faturaRepository.saveAll(Arrays.asList(fat2));
 		//Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		//Fatura(Long, FormaPagamento, PagamentoStatus, String, Instant, String, String, Double, Double, Double, Instant, Integer)								
