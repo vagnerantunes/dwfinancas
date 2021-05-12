@@ -2,6 +2,8 @@ package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.dwfinancas.programa.enums.PagamentoStatus;
@@ -42,11 +45,15 @@ public class Venda implements Serializable{
 	@JoinColumn(name = "VEN_USU_ID")
 	private Usuario usuarios;
 	
+	@OneToMany(mappedBy = "id.venda")
+	private Set<ItemVenda> itemVendas = new HashSet<>();
+	
 	private LocalDate VEN_DATA;	
 	private Double VEN_VRTOTAL;
 	private Double VEN_VRPAGO;
 	private Double VEN_DESCONTO;
 	private Double VEN_JUROS;	
 	private PagamentoStatus VEN_STS_PAG;
-	private VendaStatus VEN_STS_ORC;	
+	private VendaStatus VEN_STS_ORC;
+	
 }
