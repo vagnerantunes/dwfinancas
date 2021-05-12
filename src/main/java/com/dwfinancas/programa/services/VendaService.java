@@ -17,5 +17,4 @@ public class VendaService {
 	public List<Venda> findAll(){
 		return repository.findAll();
 	}
-
 }
