@@ -1,9 +1,11 @@
 package com.dwfinancas.programa.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.dwfinancas.programa.entities.pk.ItemVendaPK;
 
-public interface ItemVenda extends JpaRepository<ItemVenda, ItemVendaPK>{
-
+@Repository
+public interface ItemVendaRepository extends JpaRepository<ItemVendaRepository, ItemVendaPK>{
+	
 }
