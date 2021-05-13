@@ -17,4 +17,5 @@ public class ClienteService {
 	public List<Cliente> findall(){
 		return repository.findAll();		
 	}	
+	
 }

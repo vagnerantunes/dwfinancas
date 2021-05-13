@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dwfinancas.programa.entities.Usuario;
-import com.dwfinancas.programa.services.UsuarioService;
+import com.dwfinancas.programa.entities.ParcelaVenda;
+import com.dwfinancas.programa.services.ParcelaVendaService;
 
 @RestController
-@RequestMapping(value = "/usuario")
-public class UsuarioResource {
+@RequestMapping(value = "/parcela")
+public class ParcelaVendaResource {
 	
 	@Autowired
-	private UsuarioService service;
+	private ParcelaVendaService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Usuario>> findAll(){
-		List<Usuario> list = service.findAll();
-		return ResponseEntity.ok().body(list);		
+	public ResponseEntity<List<ParcelaVenda>> findAll(){
+		List<ParcelaVenda> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 
 }
