@@ -55,7 +55,7 @@ public class Produto implements Serializable{
 	private String PRO_FLAG;	
 	
 	@Getter
-	@OneToMany(mappedBy = "id.product")
+	@OneToMany(mappedBy = "id.produto")
 	private Set<ItemVenda> itemVendas = new HashSet<>();		
 
 }

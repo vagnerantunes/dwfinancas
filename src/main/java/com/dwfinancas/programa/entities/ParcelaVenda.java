@@ -2,14 +2,18 @@ package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.dwfinancas.programa.enums.PagamentoStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,5 +37,9 @@ public class ParcelaVenda implements Serializable{
 	private Instant PVD_DTVENCIMENTO;
 	private Integer PVD_ATRASO;
 	private PagamentoStatus PVD_SITUACAO;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "parcelas")
+	private Set<Venda> vendas = new HashSet<>();
 	
 }

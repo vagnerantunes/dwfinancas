@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -55,7 +57,12 @@ public class Venda implements Serializable{
 	
 	@Getter
 	@OneToMany(mappedBy = "id.venda")
-	private Set<ItemVenda> itemVendas = new HashSet<>();
+	private Set<ItemVenda> itemVendas = new HashSet<>();				
+	
+	@ManyToMany
+	@JoinTable(name = "tb_venda_parcela", joinColumns = @JoinColumn(name = "venda_id"), 
+	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
+	private Set<ParcelaVenda> parcelas = new HashSet<>();	
 	
 	@Getter
 	@Setter
@@ -83,6 +90,6 @@ public class Venda implements Serializable{
 	
 	@Getter
 	@Setter
-	private VendaStatus VEN_STS_ORC;	
+	private VendaStatus VEN_STS_ORC;
 	
 }
