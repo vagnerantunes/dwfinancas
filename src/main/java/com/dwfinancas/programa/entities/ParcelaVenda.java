@@ -20,7 +20,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tb_parcelaVenda")
+@Table(name = "tb_parcelaVendaId")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,8 +38,7 @@ public class ParcelaVenda implements Serializable{
 	private Integer PVD_ATRASO;
 	private PagamentoStatus PVD_SITUACAO;
 	
-	@JsonIgnore
+	@JsonIgnore	
 	@ManyToMany(mappedBy = "parcelas")
-	private Set<Venda> vendas = new HashSet<>();
-	
+	private Set<Venda> parcelasVendas = new HashSet<>();	
 }

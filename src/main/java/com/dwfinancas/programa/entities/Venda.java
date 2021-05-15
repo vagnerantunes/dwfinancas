@@ -1,7 +1,7 @@
 package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -59,6 +59,7 @@ public class Venda implements Serializable{
 	@OneToMany(mappedBy = "id.venda")
 	private Set<ItemVenda> itemVendas = new HashSet<>();				
 	
+	@Getter
 	@ManyToMany
 	@JoinTable(name = "tb_venda_parcela", joinColumns = @JoinColumn(name = "venda_id"), 
 	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
@@ -66,7 +67,7 @@ public class Venda implements Serializable{
 	
 	@Getter
 	@Setter
-	private LocalDate VEN_DATA;
+	private Instant VEN_DATA;
 	
 	@Getter
 	@Setter
