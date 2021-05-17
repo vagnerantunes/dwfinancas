@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dwfinancas.programa.entities.ParcelaVenda;
-import com.dwfinancas.programa.repositories.ParcelaVendaRepository;
+import com.dwfinancas.programa.entities.Parcela;
+import com.dwfinancas.programa.repositories.ParcelaRepository;
 
 @Service
-public class ParcelaVendaService {
+public class ParcelaService {
 	
 	@Autowired
-	ParcelaVendaRepository repository;
+	ParcelaRepository repository;
 	
-	public List<ParcelaVenda> findAll(){
+	public List<Parcela> findAll(){
 		return repository.findAll();
 	}	
 }

@@ -19,15 +19,11 @@ import javax.persistence.Table;
 import com.dwfinancas.programa.enums.PagamentoStatus;
 import com.dwfinancas.programa.enums.VendaStatus;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "tb_venda")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Venda implements Serializable{		
 	private static final long serialVersionUID = 1L;
 	
@@ -63,7 +59,38 @@ public class Venda implements Serializable{
 	@ManyToMany
 	@JoinTable(name = "tb_venda_parcela", joinColumns = @JoinColumn(name = "venda_id"), 
 	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
-	private Set<ParcelaVenda> parcelas = new HashSet<>();	
+	private Set<Parcela> parcelas = new HashSet<>();
+	
+	public Venda() {
+		
+	}
+	
+	public Venda(Long vEN_ID, Cliente clientes, FormaPagamento pagamentos, Usuario usuarios, Instant vEN_DATA, Double vEN_VRTOTAL, Double vEN_VRPAGO, Double vEN_DESCONTO,
+			Double vEN_JUROS, PagamentoStatus vEN_STS_PAG, VendaStatus vEN_STS_ORC) {
+		super();
+		VEN_ID = vEN_ID;
+		this.clientes = clientes;
+		this.pagamentos = pagamentos;
+		this.usuarios = usuarios;		
+		VEN_DATA = vEN_DATA;
+		VEN_VRTOTAL = vEN_VRTOTAL;
+		VEN_VRPAGO = vEN_VRPAGO;
+		VEN_DESCONTO = vEN_DESCONTO;
+		VEN_JUROS = vEN_JUROS;
+		VEN_STS_PAG = vEN_STS_PAG;
+		VEN_STS_ORC = vEN_STS_ORC;
+	}
+	
+	
+	
+	
+	/*
+	 @ManyToMany
+	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), 
+	inverseJoinColumns = @JoinColumn(name = "category_id"))
+	
+	private Set<Category> categories = new HashSet<>();
+	 */
 	
 	@Getter
 	@Setter
@@ -91,6 +118,6 @@ public class Venda implements Serializable{
 	
 	@Getter
 	@Setter
-	private VendaStatus VEN_STS_ORC;
+	private VendaStatus VEN_STS_ORC;	
 	
 }

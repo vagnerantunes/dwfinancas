@@ -15,16 +15,12 @@ import javax.persistence.Table;
 import com.dwfinancas.programa.enums.PagamentoStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tb_parcelaVendaId")
+@Table(name = "tb_parcela")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class ParcelaVenda implements Serializable{
+public class Parcela implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -40,5 +36,22 @@ public class ParcelaVenda implements Serializable{
 	
 	@JsonIgnore	
 	@ManyToMany(mappedBy = "parcelas")
-	private Set<Venda> parcelasVendas = new HashSet<>();	
+	private Set<Venda> pedidos = new HashSet<>();	
+	
+	public Parcela() {		
+	}
+
+	public Parcela(Long pVD_ID, Integer pVD_PARCELA, Double pVD_VRPARCELA, Double pVD_VRPAGO, Instant pVD_DTVENCIMENTO,
+			Integer pVD_ATRASO, PagamentoStatus pVD_SITUACAO) {
+		super();
+		PVD_ID = pVD_ID;
+		PVD_PARCELA = pVD_PARCELA;
+		PVD_VRPARCELA = pVD_VRPARCELA;
+		PVD_VRPAGO = pVD_VRPAGO;
+		PVD_DTVENCIMENTO = pVD_DTVENCIMENTO;
+		PVD_ATRASO = pVD_ATRASO;
+		PVD_SITUACAO = pVD_SITUACAO;		
+	}
+	
+	
 }

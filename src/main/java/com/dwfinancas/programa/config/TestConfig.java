@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.Cliente;
 import com.dwfinancas.programa.entities.Fatura;
 import com.dwfinancas.programa.entities.FormaPagamento;
 import com.dwfinancas.programa.entities.ItemVenda;
-import com.dwfinancas.programa.entities.ParcelaVenda;
+import com.dwfinancas.programa.entities.Parcela;
 import com.dwfinancas.programa.entities.Produto;
 import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.entities.Venda;
@@ -22,7 +22,7 @@ import com.dwfinancas.programa.repositories.ClienteRepository;
 import com.dwfinancas.programa.repositories.FaturaRepository;
 import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
 import com.dwfinancas.programa.repositories.ItemVendaRepository;
-import com.dwfinancas.programa.repositories.ParcelaVendaRepository;
+import com.dwfinancas.programa.repositories.ParcelaRepository;
 import com.dwfinancas.programa.repositories.ProdutoRepository;
 import com.dwfinancas.programa.repositories.UsuarioRepository;
 import com.dwfinancas.programa.repositories.VendaRepository;
@@ -44,10 +44,10 @@ public class TestConfig implements CommandLineRunner {
 	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
-	private ParcelaVendaRepository parcelaVendaRepository; 
+	private ProdutoRepository produtoRepository;
 	
 	@Autowired
-	private ProdutoRepository produtoRepository; 
+	private ParcelaRepository parcelaRepository; 		 
 	
 	@Autowired
 	private VendaRepository vendaRepository;
@@ -75,18 +75,19 @@ public class TestConfig implements CommandLineRunner {
 		
 		Produto pro1 = new Produto(null, "SUMUP TOP", 20.80, 50.80, 3.00, 0.00, "A", null);
 		produtoRepository.saveAll(Arrays.asList(pro1));
+				
+		Parcela pvd1 = new Parcela(null, 1, 58.80, 58.80, Instant.parse("2021-05-14T00:00:00Z"), 
+				1, PagamentoStatus.PENDENTE);					
 		
-		
-		ParcelaVenda pvd1 = new ParcelaVenda(null, 1, 58.80, 58.80, Instant.parse("2021-05-14T00:00:00Z"), 
-				1, PagamentoStatus.PENDENTE, null);
-		parcelaVendaRepository.saveAll(Arrays.asList(pvd1));				
-		
-		Venda ven1 = new Venda(null, cli1, fpg1, usu1, null, null, Instant.parse("2021-05-15T00:00:00Z"), 
+		Venda ven1 = new Venda(null, cli1, fpg1, usu1, Instant.parse("2021-05-15T00:00:00Z"), 
 				58.80, 58.80, 0.00, 0.00, PagamentoStatus.PAGO_TOTAL, VendaStatus.PEDIDO);
-		vendaRepository.saveAll(Arrays.asList(ven1));
-						
 		
-		vendaRepository.saveAll(Arrays.asList(ven1));				
+		parcelaRepository.saveAll(Arrays.asList(pvd1));	
+		vendaRepository.saveAll(Arrays.asList(ven1));
+								
+		ven1.getParcelas().add(pvd1);
+		
+		vendaRepository.saveAll(Arrays.asList(ven1));
 		
 		ItemVenda vpr1 = new ItemVenda(ven1, pro1, 1.00, 58.80, 20.80);
 		itemVendaRepository.saveAll(Arrays.asList(vpr1));
