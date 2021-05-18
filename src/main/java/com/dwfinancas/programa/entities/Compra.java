@@ -33,6 +33,8 @@ public class Compra implements Serializable{
 	@JoinColumn(name = "COM_FOR_ID")
 	private Fornecedor fornecedor;
 	
+	
+	
 	private Integer COM_PRO_ID;	
 	private Instant COM_DATA;	
 	private Double COM_VALORTOTAL;
