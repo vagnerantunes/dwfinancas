@@ -13,16 +13,14 @@ import lombok.Data;
 
 @Embeddable
 @Data
-public class ItemCompraPK implements Serializable{
-	
+public class ItemCompraPK implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "compra_id")
 	private Compra compra;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "item_id")
 	private Produto produto;
-
 }
