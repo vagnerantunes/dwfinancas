@@ -2,25 +2,27 @@ package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.dwfinancas.programa.enums.DocumentoStatus;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+
 
 @Entity
 @Data
 @Table(name = "tb_compra")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Compra implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -33,12 +35,29 @@ public class Compra implements Serializable{
 	@JoinColumn(name = "COM_FOR_ID")
 	private Fornecedor fornecedor;
 	
+	@Getter
+	@OneToMany(mappedBy = "id.compra")
+	private Set<ItemCompra> itemCompras = new HashSet<>();				
 	
-	
-	private Integer COM_PRO_ID;	
 	private Instant COM_DATA;	
 	private Double COM_VALORTOTAL;
 	private Double COM_DESCONTO;
 	private Double COM_JUROS;
-	private DocumentoStatus COM_STS_DOC;	
+	private DocumentoStatus COM_STS_DOC;
+	
+	public Compra() {		
+	}
+
+	public Compra(Long cOM_ID, Fornecedor fornecedor, Instant cOM_DATA, Double cOM_VALORTOTAL,
+			Double cOM_DESCONTO, Double cOM_JUROS, DocumentoStatus cOM_STS_DOC) {
+		super();
+		COM_ID = cOM_ID;
+		this.fornecedor = fornecedor;		
+		COM_DATA = cOM_DATA;
+		COM_VALORTOTAL = cOM_VALORTOTAL;
+		COM_DESCONTO = cOM_DESCONTO;
+		COM_JUROS = cOM_JUROS;
+		COM_STS_DOC = cOM_STS_DOC;
+	}			
+	
 }

@@ -9,18 +9,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.dwfinancas.programa.entities.Cliente;
+import com.dwfinancas.programa.entities.Compra;
 import com.dwfinancas.programa.entities.Fatura;
 import com.dwfinancas.programa.entities.FormaPagamento;
+import com.dwfinancas.programa.entities.Fornecedor;
 import com.dwfinancas.programa.entities.ItemVenda;
 import com.dwfinancas.programa.entities.Parcela;
 import com.dwfinancas.programa.entities.Produto;
 import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.entities.Venda;
+import com.dwfinancas.programa.enums.DocumentoStatus;
 import com.dwfinancas.programa.enums.PagamentoStatus;
 import com.dwfinancas.programa.enums.VendaStatus;
 import com.dwfinancas.programa.repositories.ClienteRepository;
+import com.dwfinancas.programa.repositories.CompraRepository;
 import com.dwfinancas.programa.repositories.FaturaRepository;
 import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
+import com.dwfinancas.programa.repositories.FornecedorRepository;
+import com.dwfinancas.programa.repositories.ItemCompraRepository;
 import com.dwfinancas.programa.repositories.ItemVendaRepository;
 import com.dwfinancas.programa.repositories.ParcelaRepository;
 import com.dwfinancas.programa.repositories.ProdutoRepository;
@@ -53,7 +59,17 @@ public class TestConfig implements CommandLineRunner {
 	private VendaRepository vendaRepository;
 	
 	@Autowired
-	private ItemVendaRepository itemVendaRepository; 		
+	private ItemVendaRepository itemVendaRepository;
+	
+	@Autowired
+	private FornecedorRepository fornecedorRepository; 
+	
+	@Autowired
+	private CompraRepository compraRepository;
+	
+	@Autowired
+	private ItemCompraRepository itemCompraRepository; 
+		
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -73,7 +89,7 @@ public class TestConfig implements CommandLineRunner {
 		Usuario usu1 = new Usuario(null, "Vagner Antunes", "A", "Proprietario", "123456", null);
 		usuarioRepository.saveAll(Arrays.asList(usu1));
 		
-		Produto pro1 = new Produto(null, "SUMUP TOP", 20.80, 50.80, 3.00, 0.00, "A", null);
+		Produto pro1 = new Produto(null, "SUMUP TOP", 20.80, 50.80, 3.00, 0.00, "A");
 		produtoRepository.saveAll(Arrays.asList(pro1));
 				
 		Parcela pvd1 = new Parcela(null, 1, 58.80, 58.80, Instant.parse("2021-05-14T00:00:00Z"), 
@@ -91,5 +107,18 @@ public class TestConfig implements CommandLineRunner {
 		
 		ItemVenda vpr1 = new ItemVenda(ven1, pro1, 1.00, 58.80, 20.80);
 		itemVendaRepository.saveAll(Arrays.asList(vpr1));
+		
+		Fornecedor for1 = new Fornecedor(null, "SUMUP SOLUÇÕES PAGAMENTOS", "JURIDICA", "06.186.383/0001-00", "SUMUP",
+				"RUA SUMUP, N° 123, SÃO PAULO", "0800 080 0800", "sumup@hotmail.com", "A", null);
+		fornecedorRepository.saveAll(Arrays.asList(for1));
+		
+		Compra com1 = new Compra(null, for1, Instant.parse("2021-05-18T00:00:00Z"), 20.80, 0.00, 0.00, 
+				DocumentoStatus.ABERTO);
+		compraRepository.saveAll(Arrays.asList(com1));
+		
+		
+		
+		
+		
 	}		
 }

@@ -11,15 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "tb_produto")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Produto implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -56,6 +52,26 @@ public class Produto implements Serializable{
 	
 	@Getter
 	@OneToMany(mappedBy = "id.produto")
-	private Set<ItemVenda> itemVendas = new HashSet<>();		
+	private Set<ItemVenda> itemVendas = new HashSet<>();
+	
+	@Getter
+	@OneToMany(mappedBy = "id.item")
+	private Set<ItemCompra> itemCompras = new HashSet<>();
+
+	public Produto() {		
+	}
+
+	public Produto(Long pRO_ID, String pRO_DESCRICAO, Double pRO_PRECOCUSTO, Double pRO_PRECODEVENDA,
+			Double pRO_ESTOQUE, Double pRO_ESTVENDIDO, String pRO_FLAG) {
+		super();
+		PRO_ID = pRO_ID;
+		PRO_DESCRICAO = pRO_DESCRICAO;
+		PRO_PRECOCUSTO = pRO_PRECOCUSTO;
+		PRO_PRECODEVENDA = pRO_PRECODEVENDA;
+		PRO_ESTOQUE = pRO_ESTOQUE;
+		PRO_ESTVENDIDO = pRO_ESTVENDIDO;
+		PRO_FLAG = pRO_FLAG;
+	}		
+	
 
 }

@@ -79,18 +79,7 @@ public class Venda implements Serializable{
 		VEN_JUROS = vEN_JUROS;
 		VEN_STS_PAG = vEN_STS_PAG;
 		VEN_STS_ORC = vEN_STS_ORC;
-	}
-	
-	
-	
-	
-	/*
-	 @ManyToMany
-	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), 
-	inverseJoinColumns = @JoinColumn(name = "category_id"))
-	
-	private Set<Category> categories = new HashSet<>();
-	 */
+	}	
 	
 	@Getter
 	@Setter
