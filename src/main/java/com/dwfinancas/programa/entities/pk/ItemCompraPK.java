@@ -21,6 +21,6 @@ public class ItemCompraPK implements Serializable {
 	private Compra compra;
 
 	@ManyToOne
-	@JoinColumn(name = "item_id")
+	@JoinColumn(name = "produto_id")
 	private Produto produto;
 }

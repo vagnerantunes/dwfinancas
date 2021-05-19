@@ -13,6 +13,7 @@ import com.dwfinancas.programa.entities.Compra;
 import com.dwfinancas.programa.entities.Fatura;
 import com.dwfinancas.programa.entities.FormaPagamento;
 import com.dwfinancas.programa.entities.Fornecedor;
+import com.dwfinancas.programa.entities.ItemCompra;
 import com.dwfinancas.programa.entities.ItemVenda;
 import com.dwfinancas.programa.entities.Parcela;
 import com.dwfinancas.programa.entities.Produto;
@@ -116,7 +117,8 @@ public class TestConfig implements CommandLineRunner {
 				DocumentoStatus.ABERTO);
 		compraRepository.saveAll(Arrays.asList(com1));
 		
-		
+		ItemCompra itc1 = new ItemCompra(com1, pro1, 1.00, 20.80);
+		itemCompraRepository.saveAll(Arrays.asList(itc1));
 		
 		
 	}		
