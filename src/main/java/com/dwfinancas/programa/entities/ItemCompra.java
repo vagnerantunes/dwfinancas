@@ -27,7 +27,7 @@ public class ItemCompra implements Serializable{
 	@Getter
 	@Setter
 	private Double ITC_PRECO;
-		
+	
 	public ItemCompra() {		
 	}
 

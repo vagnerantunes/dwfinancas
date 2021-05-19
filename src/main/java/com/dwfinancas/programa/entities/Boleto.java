@@ -2,34 +2,73 @@ package com.dwfinancas.programa.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_boleto")
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 public class Boleto implements Serializable{
-
 	private static final long serialVersionUID = 1L;
 	
+	@Getter
+	@Setter
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long BOL_ID;	
+	private Long BOL_ID;
+	
+	@Getter
+	@Setter
 	private String BOL_DESCRICAO;
+	
+	@Getter
+	@Setter
 	private Instant BOL_DATA;
+	
+	@Getter
+	@Setter
 	private Double BOL_VALOR;
+	
+	@Getter
+	@Setter
 	private Integer BOL_QTDPARCELAS;
+	
+	@Getter
+	@Setter
 	private String BOL_CONTAPFPJ;
+	
+	@Getter
+	@Setter
 	private String BOL_OBS;
 	
+	@Getter
+	@OneToMany(mappedBy = "id.boleto")
+	private Set<ParcelaBoleto> parcelaBoletos = new HashSet<>();
+
+	public Boleto() {
+		super();
+	}
+
+	public Boleto(Long bOL_ID, String bOL_DESCRICAO, Instant bOL_DATA, Double bOL_VALOR, Integer bOL_QTDPARCELAS,
+			String bOL_CONTAPFPJ, String bOL_OBS) {
+		super();
+		BOL_ID = bOL_ID;
+		BOL_DESCRICAO = bOL_DESCRICAO;
+		BOL_DATA = bOL_DATA;
+		BOL_VALOR = bOL_VALOR;
+		BOL_QTDPARCELAS = bOL_QTDPARCELAS;
+		BOL_CONTAPFPJ = bOL_CONTAPFPJ;
+		BOL_OBS = bOL_OBS;
+	} 
+		
 }

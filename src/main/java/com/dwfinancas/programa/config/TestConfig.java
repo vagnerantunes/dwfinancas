@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.dwfinancas.programa.entities.Boleto;
 import com.dwfinancas.programa.entities.Cliente;
 import com.dwfinancas.programa.entities.Compra;
 import com.dwfinancas.programa.entities.Fatura;
@@ -16,12 +17,14 @@ import com.dwfinancas.programa.entities.Fornecedor;
 import com.dwfinancas.programa.entities.ItemCompra;
 import com.dwfinancas.programa.entities.ItemVenda;
 import com.dwfinancas.programa.entities.Parcela;
+import com.dwfinancas.programa.entities.ParcelaBoleto;
 import com.dwfinancas.programa.entities.Produto;
 import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.entities.Venda;
 import com.dwfinancas.programa.enums.DocumentoStatus;
 import com.dwfinancas.programa.enums.PagamentoStatus;
 import com.dwfinancas.programa.enums.VendaStatus;
+import com.dwfinancas.programa.repositories.BoletoRepository;
 import com.dwfinancas.programa.repositories.ClienteRepository;
 import com.dwfinancas.programa.repositories.CompraRepository;
 import com.dwfinancas.programa.repositories.FaturaRepository;
@@ -29,6 +32,7 @@ import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
 import com.dwfinancas.programa.repositories.FornecedorRepository;
 import com.dwfinancas.programa.repositories.ItemCompraRepository;
 import com.dwfinancas.programa.repositories.ItemVendaRepository;
+import com.dwfinancas.programa.repositories.ParcelaBoletoRepository;
 import com.dwfinancas.programa.repositories.ParcelaRepository;
 import com.dwfinancas.programa.repositories.ProdutoRepository;
 import com.dwfinancas.programa.repositories.UsuarioRepository;
@@ -70,7 +74,12 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ItemCompraRepository itemCompraRepository; 
-		
+	
+	@Autowired
+	private BoletoRepository boletoRepository; 	
+	
+	@Autowired
+	private ParcelaBoletoRepository parcelaBoletoRepository; 
 	
 	@Override
 	public void run(String... args) throws Exception {
@@ -84,7 +93,7 @@ public class TestConfig implements CommandLineRunner {
 		formaPagamentoRepository.saveAll(Arrays.asList(fpg1));
 				
 		Fatura fat2 = new Fatura(null, fpg1, Instant.parse("2021-05-06T08:15:00Z"), 61.00, 0.00, 0.00, 0.00, 
-				Instant.parse("2021-06-06T00:00:00Z"), null, PagamentoStatus.PENDENTE);		
+				Instant.parse("2021-06-06T00:00:00Z"), 1, PagamentoStatus.PENDENTE);		
 		faturaRepository.saveAll(Arrays.asList(fat2));
 		
 		Usuario usu1 = new Usuario(null, "Vagner Antunes", "A", "Proprietario", "123456", null);
@@ -120,6 +129,11 @@ public class TestConfig implements CommandLineRunner {
 		ItemCompra itc1 = new ItemCompra(com1, pro1, 1.00, 20.80);
 		itemCompraRepository.saveAll(Arrays.asList(itc1));
 		
+		Boleto bol1 = new Boleto(null, "DAS", Instant.parse("2021-06-21T00:00:00Z"), 61.00, 1, "PJ", "IMPOSTO MENSAL");
+		boletoRepository.saveAll(Arrays.asList(bol1));
+		
+		ParcelaBoleto pbl1 = new ParcelaBoleto(fat2, bol1, 1, 61.00, Instant.parse("2021-06-21T00:00:00Z"));
+		parcelaBoletoRepository.saveAll(Arrays.asList(pbl1));
 		
 	}		
 }
