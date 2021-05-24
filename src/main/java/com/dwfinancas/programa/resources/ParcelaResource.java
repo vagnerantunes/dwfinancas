@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.Parcela;
 import com.dwfinancas.programa.services.ParcelaService;
 
 @RestController
-@RequestMapping(value = "/parcela")
+@RequestMapping(value = "/parcelas")
 public class ParcelaResource {
 	
 	@Autowired

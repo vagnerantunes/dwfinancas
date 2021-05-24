@@ -61,8 +61,7 @@ public class Venda implements Serializable{
 	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
 	private Set<Parcela> parcelas = new HashSet<>();
 	
-	public Venda() {
-		
+	public Venda() {		
 	}
 	
 	public Venda(Long vEN_ID, Cliente clientes, FormaPagamento pagamentos, Usuario usuarios, Instant vEN_DATA, Double vEN_VRTOTAL, Double vEN_VRPAGO, Double vEN_DESCONTO,

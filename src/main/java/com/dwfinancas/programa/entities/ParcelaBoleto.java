@@ -55,6 +55,7 @@ public class ParcelaBoleto implements Serializable{
 		id.setFatura(fatura);
 	}
 	
+	@JsonIgnore
 	public Boleto getBoleto() {
 		return id.getBoleto();
 	}

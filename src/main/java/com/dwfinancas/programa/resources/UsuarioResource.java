@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.services.UsuarioService;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/usuarios")
 public class UsuarioResource {
 	
 	@Autowired

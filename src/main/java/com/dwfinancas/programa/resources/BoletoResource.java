@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.Boleto;
 import com.dwfinancas.programa.services.BoletoService;
 
 @RestController
-@RequestMapping(value = "/boleto")
+@RequestMapping(value = "/boletos")
 public class BoletoResource {
 
 	@Autowired

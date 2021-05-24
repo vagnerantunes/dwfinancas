@@ -53,6 +53,7 @@ public class ItemVenda implements Serializable{
 		id.setVenda(venda);
 	}
 	
+	@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}

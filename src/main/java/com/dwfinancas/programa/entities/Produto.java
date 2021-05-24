@@ -55,7 +55,7 @@ public class Produto implements Serializable{
 	private Set<ItemVenda> itemVendas = new HashSet<>();
 	
 	@Getter
-	@OneToMany(mappedBy = "id.compra")
+	@OneToMany(mappedBy = "id.compra")	
 	private Set<ItemCompra> itemCompras = new HashSet<>();
 
 	public Produto() {		

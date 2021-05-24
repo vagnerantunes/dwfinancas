@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -51,7 +52,8 @@ public class Boleto implements Serializable{
 	@Setter
 	private String BOL_OBS;
 	
-	@Getter
+	@Getter	
+	@JsonIgnore
 	@OneToMany(mappedBy = "id.boleto")
 	private Set<ParcelaBoleto> parcelaBoletos = new HashSet<>();
 

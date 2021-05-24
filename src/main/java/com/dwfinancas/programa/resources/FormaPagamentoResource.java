@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.FormaPagamento;
 import com.dwfinancas.programa.services.FormaPagamentoService;
 
 @RestController
-@RequestMapping(value = "/fpg")
+@RequestMapping(value = "/fagamentos")
 public class FormaPagamentoResource {
 	
 	@Autowired

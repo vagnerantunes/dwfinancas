@@ -47,6 +47,7 @@ public class ItemCompra implements Serializable{
 		id.setCompra(compra);
 	}
 	
+	@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}

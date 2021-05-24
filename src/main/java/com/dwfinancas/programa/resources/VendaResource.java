@@ -12,7 +12,7 @@ import com.dwfinancas.programa.entities.Venda;
 import com.dwfinancas.programa.services.VendaService;
 
 @RestController
-@RequestMapping(value = "/venda")
+@RequestMapping(value = "/vendas")
 public class VendaResource {
 
 	@Autowired
