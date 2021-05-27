@@ -16,33 +16,49 @@ import javax.persistence.Table;
 
 import com.dwfinancas.programa.enums.DocumentoStatus;
 
-import lombok.Data;
 import lombok.Getter;
-
+import lombok.Setter;
 
 @Entity
-@Data
 @Table(name = "tb_compra")
 public class Compra implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Getter
+	@Setter
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long COM_ID;	
-	
+
+	@Getter
+	@Setter
 	@ManyToOne
 	@JoinColumn(name = "COM_FOR_ID")
-	private Fornecedor fornecedor;
+	private Fornecedor fornecedor;	
 	
 	@Getter
 	@OneToMany(mappedBy = "id.compra")
 	private Set<ItemCompra> itemCompras = new HashSet<>();				
 	
-	private Instant COM_DATA;	
+	@Getter
+	@Setter
+	private Instant COM_DATA;
+	
+	@Getter
+	@Setter
 	private Double COM_VALORTOTAL;
+	
+	@Getter
+	@Setter
 	private Double COM_DESCONTO;
+	
+	@Getter
+	@Setter
 	private Double COM_JUROS;
+	
+	@Getter
+	@Setter
 	private DocumentoStatus COM_STS_DOC;
 	
 	public Compra() {		
@@ -58,6 +74,7 @@ public class Compra implements Serializable{
 		COM_DESCONTO = cOM_DESCONTO;
 		COM_JUROS = cOM_JUROS;
 		COM_STS_DOC = cOM_STS_DOC;
-	}			
+	}
+
 	
 }
