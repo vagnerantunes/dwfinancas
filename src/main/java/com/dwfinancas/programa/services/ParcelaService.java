@@ -1,6 +1,7 @@
 package com.dwfinancas.programa.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,9 +13,23 @@ import com.dwfinancas.programa.repositories.ParcelaRepository;
 public class ParcelaService {
 	
 	@Autowired
-	ParcelaRepository repository;
+	private ParcelaRepository repository;
 	
 	public List<Parcela> findAll(){
 		return repository.findAll();
-	}	
+	}
+	
+	public Parcela findById(Long id) {
+		Optional<Parcela> obj = repository.findById(id);
+		return obj.get();
+		
+	}
+	
+	
+	/*
+	 public Order findById(Long id) {
+		Optional<Order> obj = repository.findById(id);
+		return obj.get();
+	}
+	 */
 }

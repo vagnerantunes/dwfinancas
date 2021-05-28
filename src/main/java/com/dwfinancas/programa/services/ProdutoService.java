@@ -13,7 +13,7 @@ import com.dwfinancas.programa.repositories.ProdutoRepository;
 public class ProdutoService {
 	
 	@Autowired
-	ProdutoRepository repository;
+	private ProdutoRepository repository;
 	
 	public List<Produto> findAll(){
 		return repository.findAll();
@@ -22,12 +22,5 @@ public class ProdutoService {
 	public Produto findById(Long id) {
 		Optional<Produto> obj = repository.findById(id);
 		return obj.get();		
-	}
-	
-	/*
-	 public Order findById(Long id) {
-		Optional<Order> obj = repository.findById(id);
-		return obj.get();
-	}
-	 */
+	}		
 }

@@ -34,6 +34,16 @@ public class Venda implements Serializable{
 	private Long VEN_ID;
 	
 	@Getter
+	@OneToMany(mappedBy = "id.venda")
+	private Set<ItemVenda> itemVendas = new HashSet<>();				
+	
+	@Getter
+	@ManyToMany
+	@JoinTable(name = "tb_venda_parcela", joinColumns = @JoinColumn(name = "venda_id"), 
+	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
+	private Set<Parcela> parcelas = new HashSet<>();
+	
+	@Getter
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "VEN_CLI_ID")
@@ -50,35 +60,6 @@ public class Venda implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "VEN_USU_ID")
 	private Usuario usuarios;
-	
-	@Getter
-	@OneToMany(mappedBy = "id.venda")
-	private Set<ItemVenda> itemVendas = new HashSet<>();				
-	
-	@Getter
-	@ManyToMany
-	@JoinTable(name = "tb_venda_parcela", joinColumns = @JoinColumn(name = "venda_id"), 
-	inverseJoinColumns = @JoinColumn(name = "parcela_id"))
-	private Set<Parcela> parcelas = new HashSet<>();
-	
-	public Venda() {		
-	}
-	
-	public Venda(Long vEN_ID, Cliente clientes, FormaPagamento pagamentos, Usuario usuarios, Instant vEN_DATA, Double vEN_VRTOTAL, Double vEN_VRPAGO, Double vEN_DESCONTO,
-			Double vEN_JUROS, PagamentoStatus vEN_STS_PAG, VendaStatus vEN_STS_ORC) {
-		super();
-		VEN_ID = vEN_ID;
-		this.clientes = clientes;
-		this.pagamentos = pagamentos;
-		this.usuarios = usuarios;		
-		VEN_DATA = vEN_DATA;
-		VEN_VRTOTAL = vEN_VRTOTAL;
-		VEN_VRPAGO = vEN_VRPAGO;
-		VEN_DESCONTO = vEN_DESCONTO;
-		VEN_JUROS = vEN_JUROS;
-		VEN_STS_PAG = vEN_STS_PAG;
-		VEN_STS_ORC = vEN_STS_ORC;
-	}	
 	
 	@Getter
 	@Setter
@@ -106,6 +87,25 @@ public class Venda implements Serializable{
 	
 	@Getter
 	@Setter
-	private VendaStatus VEN_STS_ORC;	
+	private VendaStatus VEN_STS_ORC;		
 	
+	public Venda() {		
+	}
+	
+	public Venda(Long vEN_ID, Cliente clientes, FormaPagamento pagamentos, Usuario usuarios, Instant vEN_DATA, Double vEN_VRTOTAL, Double vEN_VRPAGO, Double vEN_DESCONTO,
+			Double vEN_JUROS, PagamentoStatus vEN_STS_PAG, VendaStatus vEN_STS_ORC) {
+		super();
+		VEN_ID = vEN_ID;
+		this.clientes = clientes;
+		this.pagamentos = pagamentos;
+		this.usuarios = usuarios;		
+		VEN_DATA = vEN_DATA;
+		VEN_VRTOTAL = vEN_VRTOTAL;
+		VEN_VRPAGO = vEN_VRPAGO;
+		VEN_DESCONTO = vEN_DESCONTO;
+		VEN_JUROS = vEN_JUROS;
+		VEN_STS_PAG = vEN_STS_PAG;
+		VEN_STS_ORC = vEN_STS_ORC;
+	}	
+		
 }

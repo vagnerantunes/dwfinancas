@@ -13,16 +13,13 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "tb_formaPagamento")
-@AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
 public class FormaPagamento implements Serializable{
 
@@ -64,6 +61,23 @@ public class FormaPagamento implements Serializable{
 	@Getter
 	@JsonIgnore
 	@OneToMany(mappedBy = "pagamentos")
-	private List<Fatura> faturas = new ArrayList<>();		
-	
+	private List<Fatura> faturas = new ArrayList<>();
+
+	public FormaPagamento() {
+		super();
+	}
+
+	public FormaPagamento(Long fPG_ID, String fPG_TIPO_CONTA, String fPG_DESCRICAO, String fPG_TIPO,
+			Integer fPG_QTDPARCELA, Double fPG_PORCENTAGEM, String fPG_FLAG, List<Venda> vendas, List<Fatura> faturas) {
+		super();
+		FPG_ID = fPG_ID;
+		FPG_TIPO_CONTA = fPG_TIPO_CONTA;
+		FPG_DESCRICAO = fPG_DESCRICAO;
+		FPG_TIPO = fPG_TIPO;
+		FPG_QTDPARCELA = fPG_QTDPARCELA;
+		FPG_PORCENTAGEM = fPG_PORCENTAGEM;
+		FPG_FLAG = fPG_FLAG;
+		this.vendas = vendas;
+		this.faturas = faturas;
+	}				
 }

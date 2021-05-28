@@ -16,15 +16,12 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "tb_cliente")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Cliente implements Serializable{
 
 	private static final long serialVersionUID = 1L;				
@@ -85,4 +82,29 @@ public class Cliente implements Serializable{
 	@JsonIgnore
 	@OneToMany(mappedBy = "clientes")
 	private List<Venda> vendas = new ArrayList<>();
+
+	public Cliente() {
+		super();
+	}
+
+	public Cliente(Long cLI_ID, String cLI_NOME, String cLI_TIPO, String cLI_CFPCNPJ, Instant cLI_DATANASCIMENTO,
+			String cLI_CONTATO, String cLI_EMAIL, String cLI_RAZAOSOCIAL, String cLI_NOMEFANTASIA, String cLI_ENDERECO,
+			String cLI_SEGMENTO, String cLI_FLAG, List<Venda> vendas) {
+		super();
+		CLI_ID = cLI_ID;
+		CLI_NOME = cLI_NOME;
+		CLI_TIPO = cLI_TIPO;
+		CLI_CFPCNPJ = cLI_CFPCNPJ;
+		CLI_DATANASCIMENTO = cLI_DATANASCIMENTO;
+		CLI_CONTATO = cLI_CONTATO;
+		CLI_EMAIL = cLI_EMAIL;
+		CLI_RAZAOSOCIAL = cLI_RAZAOSOCIAL;
+		CLI_NOMEFANTASIA = cLI_NOMEFANTASIA;
+		CLI_ENDERECO = cLI_ENDERECO;
+		CLI_SEGMENTO = cLI_SEGMENTO;
+		CLI_FLAG = cLI_FLAG;
+		this.vendas = vendas;
+	}
+	
+	
 }

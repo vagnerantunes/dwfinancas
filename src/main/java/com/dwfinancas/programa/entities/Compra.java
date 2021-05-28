@@ -35,11 +35,8 @@ public class Compra implements Serializable{
 	@Setter
 	@ManyToOne
 	@JoinColumn(name = "COM_FOR_ID")
-	private Fornecedor fornecedor;	
-	
-	@Getter
-	@OneToMany(mappedBy = "id.compra")
-	private Set<ItemCompra> itemCompras = new HashSet<>();				
+	private Fornecedor fornecedor;		
+			
 	
 	@Getter
 	@Setter
@@ -60,6 +57,10 @@ public class Compra implements Serializable{
 	@Getter
 	@Setter
 	private DocumentoStatus COM_STS_DOC;
+	
+	@Getter
+	@OneToMany(mappedBy = "id.compra")
+	private Set<ItemCompra> itemCompras = new HashSet<>();	
 	
 	public Compra() {		
 	}

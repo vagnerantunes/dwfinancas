@@ -1,6 +1,7 @@
 package com.dwfinancas.programa.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,15 @@ import com.dwfinancas.programa.repositories.FaturaRepository;
 public class FaturaService {
 	
 	@Autowired
-	FaturaRepository repository;
-	
+	private FaturaRepository repository;
+
 	public List<Fatura> findAll(){
 		return repository.findAll();
+	}
+	
+	public Fatura findById(Long id) {
+		Optional<Fatura> obj = repository.findById(id);
+		return obj.get();		
 	}
 
 }

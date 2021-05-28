@@ -13,7 +13,7 @@ import com.dwfinancas.programa.repositories.VendaRepository;
 public class VendaService {
 	
 	@Autowired
-	VendaRepository repository;
+	private VendaRepository repository;
 	
 	public List<Venda> findAll(){
 		return repository.findAll();

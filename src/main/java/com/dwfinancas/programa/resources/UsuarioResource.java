@@ -30,11 +30,5 @@ public class UsuarioResource {
 		Usuario obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);		
 	}	
-	/*
-	 @GetMapping(value = "/{id}")
-	public ResponseEntity<Order> findById(@PathVariable Long id) {
-		Order obj = service.findById(id);
-		return ResponseEntity.ok().body(obj);
-	}
-	 */
+	
 }

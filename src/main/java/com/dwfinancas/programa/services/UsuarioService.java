@@ -13,7 +13,7 @@ import com.dwfinancas.programa.repositories.UsuarioRepository;
 public class UsuarioService {
 	
 	@Autowired
-	UsuarioRepository repository;
+	private UsuarioRepository repository;
 	
 	public List<Usuario> findAll(){
 		return repository.findAll(); 
@@ -24,10 +24,4 @@ public class UsuarioService {
 		return obj.get();		
 	}
 	
-	/*
-	 public Order findById(Long id) {
-		Optional<Order> obj = repository.findById(id);
-		return obj.get();
-	}
-	 */
 }
