@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -71,7 +73,23 @@ public class Produto implements Serializable{
 		PRO_ESTOQUE = pRO_ESTOQUE;
 		PRO_ESTVENDIDO = pRO_ESTVENDIDO;
 		PRO_FLAG = pRO_FLAG;
-	}		
+	}
 	
-
+	@JsonIgnore
+	public Set<Venda> getVendas(){
+		Set<Venda> set = new HashSet<>();
+		for(ItemVenda x : itemVendas) {
+			set.add(x.getVenda());
+		}
+		return set;
+	}
+	
+	@JsonIgnore
+	public Set<Compra> getCompras(){
+		Set<Compra> set = new HashSet<>();
+		for(ItemCompra x : itemCompras) {
+			set.add(x.getCompra());
+		}
+		return set;
+	}	
 }
