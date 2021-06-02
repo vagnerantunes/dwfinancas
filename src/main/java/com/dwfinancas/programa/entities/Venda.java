@@ -106,6 +106,15 @@ public class Venda implements Serializable{
 		VEN_JUROS = vEN_JUROS;
 		VEN_STS_PAG = vEN_STS_PAG;
 		VEN_STS_ORC = vEN_STS_ORC;
-	}	
+	}
+	
+	public Double getTotal() {
+		Double sum = 0.0;
+		for (ItemVenda x : itemVendas) {
+			sum = sum + x.getSubTotal();
+		}
+		return sum;
+		
+	}
 		
 }

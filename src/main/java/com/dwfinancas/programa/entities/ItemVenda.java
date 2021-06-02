@@ -61,6 +61,11 @@ public class ItemVenda implements Serializable{
 	public void setProduto(Produto produto) {
 		id.setProduto(produto);
 	}
+	
+	public Double getSubTotal() {
+		return VPR_PRECOVENDA * VPR_QTD;
+		
+	}
 
 	@Override
 	public int hashCode() {
@@ -102,7 +107,7 @@ public class ItemVenda implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		return true;
+		return true;		
 	}	
 	
 }
