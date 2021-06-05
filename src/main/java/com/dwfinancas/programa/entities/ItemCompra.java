@@ -55,6 +55,8 @@ public class ItemCompra implements Serializable{
 	public void setProduto(Produto produto) {
 		id.setProduto(produto);
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -91,6 +93,5 @@ public class ItemCompra implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-		
+	}		
 }
