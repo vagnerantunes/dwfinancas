@@ -1,5 +1,6 @@
 package com.dwfinancas.programa.resources;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.services.UsuarioService;
@@ -33,10 +35,23 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(obj);		
 	}	
 	
+	//metodo utilizado para retornar resposta HTTP 201 - ok.
 	@PostMapping
 	public ResponseEntity<Usuario> insert(@RequestBody Usuario obj){
 		obj = service.insert(obj);
-		return ResponseEntity.ok().body(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getUSU_ID()).toUri();
+		return ResponseEntity.created(uri).body(obj);
 		
-	}	
+	}
+	
+	/*
+	 * Metodo utilizado para inserir usuários no banco. Porem com esse metodo é retornado a mensagem de número 200 - OK,
+	 * e o ideal é que se retorne o 201 - OK. Que é o padrão do HTTP
+	@PostMapping
+	public ResponseEntity<Usuario> insert(@RequestBody Usuario obj){
+		obj = service.insert(obj);
+		return ResponseEntity.ok().body(obj);		
+	}  
+	 */
+		
 }
