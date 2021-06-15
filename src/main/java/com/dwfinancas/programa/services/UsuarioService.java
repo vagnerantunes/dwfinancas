@@ -48,6 +48,5 @@ public class UsuarioService {
 		entity.setUSU_NOME(obj.getUSU_NOME());
 		entity.setUSU_FLAG(obj.getUSU_FLAG());
 		entity.setUSU_FUNCAO(obj.getUSU_FUNCAO());
-	}
-	
+	}	
 }
