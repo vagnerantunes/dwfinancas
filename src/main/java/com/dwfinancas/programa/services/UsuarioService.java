@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Usuario;
 import com.dwfinancas.programa.repositories.UsuarioRepository;
+import com.dwfinancas.programa.services.exceptions.DatabaseException;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UsuarioService {
@@ -20,10 +24,22 @@ public class UsuarioService {
 		return repository.findAll(); 
 	}
 	
-	//buscar usuario por codigo
-	public Usuario findById(Long id) {
+	/**Buscar usuario por codigo. Nesse metodo utilizando o obj.get() da o erro 500,  
+	 ** caso a gente busque por um codigo inexistente **
+	   public Usuario findById(Long id) {
 		Optional<Usuario> obj = repository.findById(id);
 		return obj.get();		
+	   }
+	  
+	 */
+	
+	/*com a utilização desse metedo com orElse.. ele tenta dar o get, se não tiver usuario
+	 * lança a exceção
+	 */
+	public Usuario findById(Long id) {
+		Optional<Usuario> obj = repository.findById(id);
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+		
 	}
 	
 	//inserir usuario
@@ -32,9 +48,23 @@ public class UsuarioService {
 		
 	}
 	
-	//deletar usuario
-	public void delete(Long id) {
+	/* deletar usuario. retorna erro 500.
+	 public void delete(Long id) {
 		repository.deleteById(id);
+	}
+	 */
+	public void delete(Long id) {
+		
+		try {
+			repository.deleteById(id);
+		}// exceção para codigo inexistente 
+		catch (EmptyResultDataAccessException e) {
+			throw new ResourceNotFoundException(id);
+		}// exceção para delete no qual possui pedidos... 
+		catch (DataIntegrityViolationException e) {
+			throw new DatabaseException(e.getMessage());
+		}
+		
 	}
 	
 	//atualizar usuario
