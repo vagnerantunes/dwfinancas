@@ -55,9 +55,9 @@ public class Fatura implements Serializable{
 	@Getter
 	@Setter
 	private Integer FAT_ATRASO;
-	@Getter
-	@Setter
-	private PagamentoStatus FAT_STS_PAG;	
+	
+	
+	private Integer FAT_STS_PAG;	
 	
 	@Getter
 	@OneToMany(mappedBy = "id.fatura")
@@ -80,7 +80,20 @@ public class Fatura implements Serializable{
 		FAT_VALORPAGO = fAT_VALORPAGO;
 		FAT_VENCIMENTO = fAT_VENCIMENTO;
 		FAT_ATRASO = fAT_ATRASO;
-		FAT_STS_PAG = fAT_STS_PAG;
+		setFAT_STS_PAG(fAT_STS_PAG);
+	}
+
+	public PagamentoStatus getFAT_STS_PAG() {
+		return PagamentoStatus.valueOf(FAT_STS_PAG);
+		
+	}
+
+	public void setFAT_STS_PAG(PagamentoStatus fAT_STS_PAG) {
+		if(fAT_STS_PAG != null) {
+			this.FAT_STS_PAG = fAT_STS_PAG.getCodigo();
+		}
 	}	
+	
+	
 	
 }

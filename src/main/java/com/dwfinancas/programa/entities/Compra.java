@@ -54,9 +54,7 @@ public class Compra implements Serializable{
 	@Setter
 	private Double COM_JUROS;
 	
-	@Getter
-	@Setter
-	private DocumentoStatus COM_STS_DOC;
+	private Integer COM_STS_DOC;
 	
 	@Getter
 	@OneToMany(mappedBy = "id.compra")
@@ -74,8 +72,19 @@ public class Compra implements Serializable{
 		COM_VALORTOTAL = cOM_VALORTOTAL;
 		COM_DESCONTO = cOM_DESCONTO;
 		COM_JUROS = cOM_JUROS;
-		COM_STS_DOC = cOM_STS_DOC;
+		setCOM_STS_DOC(cOM_STS_DOC);
 	}
 
+	public DocumentoStatus getCOM_STS_DOC() {
+		return DocumentoStatus.valueOf(COM_STS_DOC);
+		
+	}
+
+	public void setCOM_STS_DOC(DocumentoStatus cOM_STS_DOC) {
+		if(cOM_STS_DOC != null) {
+			this.COM_STS_DOC = cOM_STS_DOC.getCodigo();
+		}
+	}
+	
 	
 }

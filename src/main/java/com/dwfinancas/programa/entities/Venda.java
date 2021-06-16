@@ -81,13 +81,9 @@ public class Venda implements Serializable{
 	@Setter
 	private Double VEN_JUROS;	
 	
-	@Getter
-	@Setter
-	private PagamentoStatus VEN_STS_PAG;
+	private Integer VEN_STS_PAG;
 	
-	@Getter
-	@Setter
-	private VendaStatus VEN_STS_ORC;		
+	private Integer VEN_STS_ORC;		
 	
 	public Venda() {		
 	}
@@ -104,8 +100,28 @@ public class Venda implements Serializable{
 		VEN_VRPAGO = vEN_VRPAGO;
 		VEN_DESCONTO = vEN_DESCONTO;
 		VEN_JUROS = vEN_JUROS;
-		VEN_STS_PAG = vEN_STS_PAG;
-		VEN_STS_ORC = vEN_STS_ORC;
+		setVEN_STS_PAG(vEN_STS_PAG);
+		setVEN_STS_ORC(vEN_STS_ORC);
+	}
+	
+	public PagamentoStatus getVEN_STS_PAG() {
+		return PagamentoStatus.valueOf(VEN_STS_PAG);
+	}
+
+	public void setVEN_STS_PAG(PagamentoStatus vEN_STS_PAG) {
+		if(vEN_STS_PAG != null) {
+			this.VEN_STS_PAG = vEN_STS_PAG.getCodigo();
+		}
+	}
+	
+	public VendaStatus getVEN_STS_ORC() {
+		return VendaStatus.valueOf(VEN_STS_ORC);
+	}
+
+	public void setVEN_STS_ORC(VendaStatus vEN_STS_ORC) {
+		if(vEN_STS_ORC != null) {
+			this.VEN_STS_ORC = vEN_STS_ORC.getCodigo();
+		}
 	}
 	
 	public Double getTotal() {
@@ -116,5 +132,4 @@ public class Venda implements Serializable{
 		return sum;
 		
 	}
-		
 }

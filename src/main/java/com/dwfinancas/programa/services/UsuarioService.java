@@ -77,8 +77,7 @@ public class UsuarioService {
 			return repository.save(entity);
 		} catch (EntityNotFoundException e) {			
 			throw new ResourceNotFoundException(id);
-		}
-		
+		}		
 	}
 
 	private void updateData(Usuario entity, Usuario obj) {

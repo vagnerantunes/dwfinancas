@@ -106,7 +106,7 @@ public class TestConfig implements CommandLineRunner {
 				1, PagamentoStatus.PENDENTE);					
 		
 		Venda ven1 = new Venda(null, cli1, fpg1, usu1, Instant.parse("2021-05-15T00:00:00Z"), 
-				58.80, 58.80, 0.00, 0.00, PagamentoStatus.PAGO_TOTAL, VendaStatus.PEDIDO);
+				58.80, 58.80, 0.00, 0.00, PagamentoStatus.PAGO_TOTAL, VendaStatus.ORCAMENTO);
 		
 		parcelaRepository.saveAll(Arrays.asList(pvd1));	
 		vendaRepository.saveAll(Arrays.asList(ven1));
@@ -122,8 +122,7 @@ public class TestConfig implements CommandLineRunner {
 				"RUA SUMUP, N° 123, SÃO PAULO", "0800 080 0800", "sumup@hotmail.com", "A", null);
 		fornecedorRepository.saveAll(Arrays.asList(for1));
 		
-		Compra com1 = new Compra(null, for1, Instant.parse("2021-05-18T00:00:00Z"), 20.80, 0.00, 0.00, 
-				DocumentoStatus.ABERTO);
+		Compra com1 = new Compra(null, for1, Instant.parse("2021-05-18T00:00:00Z"), 20.80, 0.00, 0.00, DocumentoStatus.ABERTO);
 		compraRepository.saveAll(Arrays.asList(com1));
 		
 		ItemCompra itc1 = new ItemCompra(com1, pro1, 1.00, 20.80);
