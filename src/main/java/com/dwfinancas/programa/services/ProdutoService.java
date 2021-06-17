@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Produto;
 import com.dwfinancas.programa.repositories.ProdutoRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ProdutoService {
@@ -21,6 +22,7 @@ public class ProdutoService {
 	
 	public Produto findById(Long id) {
 		Optional<Produto> obj = repository.findById(id);
-		return obj.get();		
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));	
 	}		
+	
 }

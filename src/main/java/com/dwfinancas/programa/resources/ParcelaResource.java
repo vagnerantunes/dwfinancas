@@ -42,5 +42,4 @@ public class ParcelaResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getPVD_ID()).toUri();
 		return ResponseEntity.created(uri).body(obj);
 	}
-
 }

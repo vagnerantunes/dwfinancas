@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Compra;
 import com.dwfinancas.programa.repositories.CompraRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CompraService {
@@ -21,6 +22,6 @@ public class CompraService {
 	
 	public Compra findById(Long id) {
 		Optional<Compra> obj = repository.findById(id);
-		return obj.get();		
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));		
 	}
 }

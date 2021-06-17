@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Boleto;
 import com.dwfinancas.programa.repositories.BoletoRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class BoletoService {
@@ -21,6 +22,10 @@ public class BoletoService {
 	
 	public Boleto findById(Long id) {
 		Optional<Boleto> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));		
+	}
+	
+	public Boleto insert(Boleto obj) {
+		return repository.save(obj);
 	}
 }

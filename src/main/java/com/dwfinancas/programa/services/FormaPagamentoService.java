@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.FormaPagamento;
 import com.dwfinancas.programa.repositories.FormaPagamentoRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class FormaPagamentoService {
@@ -21,8 +22,8 @@ public class FormaPagamentoService {
 	
 	public FormaPagamento findById(Long id) {
 		Optional<FormaPagamento> obj = repository.findById(id);
-		return obj.get();		
-	}
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));	
+    }	
 	
 	public FormaPagamento insert(FormaPagamento obj) {
 		return repository.save(obj);

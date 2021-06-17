@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Fornecedor;
 import com.dwfinancas.programa.repositories.FornecedorRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class FornecedorService {
@@ -21,7 +22,7 @@ public class FornecedorService {
 	
 	public Fornecedor findById(Long id) {
 		Optional<Fornecedor> obj = repository.findById(id);
-		return obj.get();		
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));		
 	}
 	
 	public Fornecedor insert(Fornecedor obj) {

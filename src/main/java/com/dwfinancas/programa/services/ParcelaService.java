@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Parcela;
 import com.dwfinancas.programa.repositories.ParcelaRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ParcelaService {
@@ -21,7 +22,7 @@ public class ParcelaService {
 	
 	public Parcela findById(Long id) {
 		Optional<Parcela> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 		
 	}
 	

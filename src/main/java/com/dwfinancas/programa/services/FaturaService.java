@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Fatura;
 import com.dwfinancas.programa.repositories.FaturaRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class FaturaService {
@@ -21,7 +22,8 @@ public class FaturaService {
 	
 	public Fatura findById(Long id) {
 		Optional<Fatura> obj = repository.findById(id);
-		return obj.get();		
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+		
 	}
 
 }

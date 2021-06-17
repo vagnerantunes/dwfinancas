@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Cliente;
 import com.dwfinancas.programa.repositories.ClienteRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class ClienteService {
@@ -21,7 +22,11 @@ public class ClienteService {
 	
 	public Cliente findById(Long id) {
 		Optional<Cliente> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));		
+	}
+	
+	public Cliente insert(Cliente obj) {
+		return repository.save(obj);
 	}
 	
 }
