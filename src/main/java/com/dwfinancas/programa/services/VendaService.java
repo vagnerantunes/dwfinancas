@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dwfinancas.programa.entities.Venda;
 import com.dwfinancas.programa.repositories.VendaRepository;
+import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class VendaService {
@@ -21,13 +22,7 @@ public class VendaService {
 	
 	public Venda findById(Long id) {
 		Optional<Venda> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));		
 	}	
 	
-	/*
-	 public Order findById(Long id) {
-		Optional<Order> obj = repository.findById(id);
-		return obj.get();
-	}
-	 */
 }

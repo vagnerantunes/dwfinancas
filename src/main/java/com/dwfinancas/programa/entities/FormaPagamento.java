@@ -25,6 +25,9 @@ public class FormaPagamento implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	
+	@Getter
+	@Setter
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long FPG_ID;

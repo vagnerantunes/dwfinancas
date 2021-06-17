@@ -24,6 +24,8 @@ public class FormaPagamentoService {
 		return obj.get();		
 	}
 	
+	public FormaPagamento insert(FormaPagamento obj) {
+		return repository.save(obj);
+	}
 	
-
 }

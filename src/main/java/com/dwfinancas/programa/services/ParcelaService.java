@@ -25,11 +25,8 @@ public class ParcelaService {
 		
 	}
 	
-	
-	/*
-	 public Order findById(Long id) {
-		Optional<Order> obj = repository.findById(id);
-		return obj.get();
+	public Parcela insert(Parcela obj) {
+		return repository.save(obj);
+		
 	}
-	 */
 }

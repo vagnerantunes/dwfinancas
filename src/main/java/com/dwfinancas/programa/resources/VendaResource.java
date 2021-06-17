@@ -31,5 +31,4 @@ public class VendaResource {
 		return ResponseEntity.ok().body(obj);
 	}	
 	
-
 }
