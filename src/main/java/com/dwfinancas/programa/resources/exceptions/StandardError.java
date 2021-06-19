@@ -8,6 +8,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
+/* Nesta classe que pertence ao pacote resource, vamos tratar os erros por atributos.. 
+ * para armazenar o momento em que deu o erro, status, qual tipo de erro.. 
+ */
 public class StandardError implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -44,7 +47,5 @@ public class StandardError implements Serializable{
 		this.error = error;
 		this.message = message;
 		this.path = path;
-	}
-
-	
+	}	
 }

@@ -59,13 +59,38 @@ public class UsuarioService {
 		
 		try {
 			repository.deleteById(id);
-		}// exceção para codigo inexistente 
+		}
+		/*  Exceção para codigo inexistente.
+		 *  Pegamos o ERRO "EmptyResultDataAccessException" gerado no console quando   
+		 *  efetuamos a busca pela postman, e depois tratamos diretamente com ele no 
+		 *  catch
+		 */
 		catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException(id);
-		}// exceção para delete no qual possui pedidos... 
+		}
+		/* Exceção para delete no qual possui pedidos...
+		 * 
+		 * No codigo abaixo pegamos DataIntegrityViolationException, 
+		 * e dps lançamos uma exceção com a classe DatabaseException que foi criada
+		 * no pacote services.exceptions
+		 */		
 		catch (DataIntegrityViolationException e) {
 			throw new DatabaseException(e.getMessage());
-		}
+		} 
+		/* Esse catch é usado para capturar uma exceção e imprimir no console o nome da
+		 * mesma. Como no caso das exceções acima EmptyResultDataAccessException e 
+		 * DataIntegrityViolationException. A partir desses nomes gerado é possivel 
+		 * fazer uma exceção manualmente com dados feitos por nós e nao que está sendo 
+		 * gerado pelo proprio sistema. Apos capturar o erro com runtime que é generico 
+		 * demais trocar pelo erro especifico que está sendo gerado.
+		 * 
+		 * CODIGO PARA CAPCTURAR ERRO.
+		  	catch (RuntimeException e) {
+		 
+			e.printStackTrace();
+			}
+		 * 
+		 */			
 		
 	}
 	

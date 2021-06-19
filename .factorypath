@@ -61,4 +61,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/yaml/snakeyaml/1.27/snakeyaml-1.27.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/h2database/h2/1.4.200/h2-1.4.200.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/postgresql/postgresql/42.2.18/postgresql-42.2.18.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>
