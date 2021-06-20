@@ -31,8 +31,7 @@ public class UsuarioService {
 	   public Usuario findById(Long id) {
 		Optional<Usuario> obj = repository.findById(id);
 		return obj.get();		
-	   }
-	  
+	   }	  
 	 */
 	
 	/*com a utilização desse metedo com orElse.. ele tenta dar o get, se não tiver usuario
