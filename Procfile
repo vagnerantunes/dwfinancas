@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.herokuapp.curso-java-springboot-jpa
+web: java -jar target/myapp-1.0.0.jar
