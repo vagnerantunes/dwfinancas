@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* https://curso-java-springboot-jpa.herokuapp.com/
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.ec2-3-212-75-25.compute-1.amazonaws
