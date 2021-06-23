@@ -1,1 +1,1 @@
-web: java -jar target/spring-boot-starter-2.4.2.jar
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.dwfinancas
