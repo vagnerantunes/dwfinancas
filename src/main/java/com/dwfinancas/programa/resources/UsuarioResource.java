@@ -68,6 +68,5 @@ public class UsuarioResource {
 		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 		
-	}
-		
+	}		
 }
