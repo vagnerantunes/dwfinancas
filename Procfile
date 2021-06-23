@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port$PORT -war target/dwfinancas-1-2021.01.27.war com.dwfinancas
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.dwfinancas
