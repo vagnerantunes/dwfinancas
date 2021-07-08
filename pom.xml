@@ -14,7 +14,7 @@
 	<groupId>com.dwfinancas</groupId>
 	<artifactId>dwfinancas-1</artifactId>
 	<version>2021.01.27</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dwfinancas-1</name>
 	<description>Programa DWFINANÇAS</description>
 
