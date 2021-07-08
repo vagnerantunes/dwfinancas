@@ -14,7 +14,7 @@
 	<groupId>com.dwfinancas</groupId>
 	<artifactId>dwfinancas-1</artifactId>
 	<version>2021.01.27</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>dwfinancas-1</name>
 	<description>Programa DWFINANÇAS</description>
 
@@ -89,14 +89,8 @@
 						</exclude>
 					</excludes>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>3.0.3</version>
-			</plugin>
-
+				
+			</plugin>			
 		</plugins>
 	</build>
 
