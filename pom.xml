@@ -14,7 +14,7 @@
 	<groupId>com.dwfinancas</groupId>
 	<artifactId>dwfinancas-1</artifactId>
 	<version>2021.01.27</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>dwfinancas-1</name>
 	<description>Programa DWFINANÇAS</description>
 
@@ -68,10 +68,10 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>			
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -79,9 +79,8 @@
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>	
-															
-				
+				<artifactId>spring-boot-maven-plugin</artifactId>
+
 				<configuration>
 					<excludes>
 						<exclude>
@@ -91,7 +90,12 @@
 					</excludes>
 				</configuration>
 			</plugin>
-							
+
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>3.0.3</version>
+			</plugin>
 
 		</plugins>
 	</build>
