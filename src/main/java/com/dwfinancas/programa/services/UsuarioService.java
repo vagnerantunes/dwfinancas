@@ -17,7 +17,7 @@ import com.dwfinancas.programa.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UsuarioService {
-	
+		
 	@Autowired
 	private UsuarioRepository repository;
 	
