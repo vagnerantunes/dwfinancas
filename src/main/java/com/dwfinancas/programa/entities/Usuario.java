@@ -42,7 +42,7 @@ public class Usuario implements Serializable{
 	@Setter
 	private String USU_FUNCAO;
 	
-	@JsonIgnore //anotação para não ficar aparecendo dados referente a senha	
+	//@JsonIgnore //anotação para não ficar aparecendo dados referente a senha	
 	@Getter
 	@Setter
 	private String USU_SENHA;
@@ -52,7 +52,7 @@ public class Usuario implements Serializable{
 	@OneToMany(mappedBy = "usuarios")
 	private List<Usuario> usuarios = new ArrayList<>();
 	
-	public Usuario() {		
+	public Usuario() {			
 	}			
 
 	public Usuario(Long uSU_ID, String uSU_NOME, String uSU_FLAG, String uSU_FUNCAO, String uSU_SENHA) {

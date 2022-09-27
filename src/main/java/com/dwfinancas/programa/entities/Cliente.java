@@ -16,16 +16,15 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Table(name = "tb_cliente")
-public class Cliente implements Serializable{
+public class Cliente implements Serializable {
 
-	private static final long serialVersionUID = 1L;				
-	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter
@@ -71,20 +70,20 @@ public class Cliente implements Serializable{
 	@Setter
 	@Column(length = 45)
 	private String CLI_SEGMENTO;
-	
+
 	@Getter
 	@Setter
 	@Column(length = 1)
 	private String CLI_FLAG;
-	
-	//Lista não tem Set, somente Get.
+
+	// Lista não tem Set, somente Get.
 	@Getter
 	@JsonIgnore
 	@OneToMany(mappedBy = "clientes")
 	private List<Venda> vendas = new ArrayList<>();
 
-	public Cliente() {
-		super();
+	public Cliente() {		
+		
 	}
 
 	public Cliente(Long cLI_ID, String cLI_NOME, String cLI_TIPO, String cLI_CFPCNPJ, Instant cLI_DATANASCIMENTO,
@@ -105,7 +104,5 @@ public class Cliente implements Serializable{
 		CLI_FLAG = cLI_FLAG;
 		this.vendas = vendas;
 	}
-	
-	
-	
+
 }

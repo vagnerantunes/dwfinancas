@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.dwfinancas.programa.entities.Boleto;
 import com.dwfinancas.programa.entities.Cliente;
@@ -42,9 +41,6 @@ import com.dwfinancas.programa.repositories.VendaRepository;
 @Configuration
 @Profile("test")
 public class TestConfig implements CommandLineRunner {
-	
-	@Autowired
-	private BCryptPasswordEncoder pe;
 
 	@Autowired
 	private ClienteRepository clienteRepository;
@@ -100,7 +96,7 @@ public class TestConfig implements CommandLineRunner {
 				Instant.parse("2021-06-06T00:00:00Z"), 1, PagamentoStatus.PENDENTE);		
 		faturaRepository.saveAll(Arrays.asList(fat2));
 		
-		Usuario usu1 = new Usuario(null, "Vagner Antunes", "A", "Proprietario", pe.encode("123456"));
+		Usuario usu1 = new Usuario(null, "Vagner Antunes", "A", "Proprietario", "123456");
 		usuarioRepository.saveAll(Arrays.asList(usu1));
 		
 		Produto pro1 = new Produto(null, "SUMUP TOP", 20.80, 50.80, 3.00, 0.00, "A");
